@@ -1,0 +1,59 @@
+Students
+- id (PK)
+- first_name
+- last_name
+- email
+- phone
+
+Enrollments
+- id (PK)
+- student_id (FK to Students)
+- course_offering_id (FK to Course_offerings)
+
+Professors
+- id (PK)
+- first_name
+- last_name
+- email
+- phone
+
+Course_offerings
+- id (PK)
+- course_id (FK to Courses)
+- professor_id (FK to Professors)
+- semester
+- year
+
+Courses
+- id (PK)
+- name
+- department_id (FK to Departments)
+
+Departments
+- id (PK)
+- name
+
+Exams
+- id (PK)
+- name
+- course_offering_id (FK to Course_offerings)
+
+Grades
+- id (PK)
+- name
+- value
+
+Exam_results
+- id (PK)
+- exam_id (FK to Exams)
+- enrollment_id (FK to Enrollments)
+- grade_id (FK to Grades)
+
+
+Las relaciones en este modelo son las siguientes:
+
+La tabla "Enrollments" tiene una clave foránea (FK) "student_id" que referencia a la tabla "Students" mediante la clave primaria "id".
+La tabla "Course_offerings" tiene dos claves foráneas: "course_id" que referencia a la tabla "Courses" mediante la clave primaria "id", y "professor_id" que referencia a la tabla "Professors" mediante la clave primaria "id".
+La tabla "Courses" tiene una clave foránea "department_id" que referencia a la tabla "Departments" mediante la clave primaria "id".
+La tabla "Exams" tiene una clave foránea "course_offering_id" que referencia a la tabla "Course_offerings" mediante la clave primaria "id".
+La tabla "Exam_results" tiene tres claves foráneas: "exam_id" que referencia a la tabla "Exams" mediante la clave primaria "id", "enrollment_id" que referencia a la tabla "Enrollments" mediante la clave primaria "id", y "grade_id" que referencia a la tabla "Grades" mediante la clave primaria "id".
